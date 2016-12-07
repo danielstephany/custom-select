@@ -1,0 +1,76 @@
+$border: #bbb;
+$font-color: #888;
+$background: #fff;
+$hover: darken($background, 8%);
+.select {
+	border-radius: 10px;
+	border: 1px solid $border;
+	width: 100%;
+	min-height: 30px;
+	position: relative;
+	background: $background;
+	cursor: pointer;
+	&__value {
+		display: block;
+		width: 100%;
+		padding: 10px 15px;
+		color: $font-color;
+		position: relative;
+		&:after {
+			content: '';
+			border-right: 1px solid $border;
+			border-bottom: 1px solid $border;
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			top: 30;
+			right: 15px;
+			transform: rotate(45deg);
+		}
+	}
+	&__options {
+		border-radius: 0 0 10px 10px;
+		border-left: 1px solid $border;
+		border-right: 1px solid $border;
+		border-bottom: 1px solid $border;
+		display: none;
+		margin: 0;
+		padding: 0;
+		width: calc(100% + 2px);
+		list-style: none;
+		position: absolute;
+		top: calc(100% + 1px);
+		right: -1px;
+		left: -1px;
+		overflow: hidden;
+		li { 
+			display: block;
+			padding: 5px 15px;
+			width: 100%;
+			color: $font-color;
+			background: $background;
+			transition: background 0.2s linear;
+			cursor: pointer;
+			&:hover {
+				background: $hover;
+			}
+			&:first-child {
+				padding-top: 10px;
+			}
+			&:last-child {
+				padding-bottom: 10px;
+			}
+		}
+	}
+}
+
+.select.active {
+	border-radius: 10px 10px 0 0;
+	.select__options {
+		
+	}
+}
+
+
+
